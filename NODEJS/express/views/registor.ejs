@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registor</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <%- include header%>
+    <form action="/users/registor" class="" method="post">
+        用户名：<input type="text" name="username" value="">
+        密码：<input type="password" name="password" value="">
+        确认密码：<input type="password" name="confirmPwd" value="">
+        <input type="submit" name="submit" value="提交">
+    </form>
+</body>
+</html>

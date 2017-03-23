@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <%- include("header.ejs")%>
+    
+    <%#111注释浏览器看不到%>
+
+    <%if(isShow){%>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div class="index">首页11</div>
+    <%}%>
+    <% if(!username){%>
+<input type="button" name="login" value="登陆" onclick="location.href='/login'">
+    <% }else{%>
+      <span>欢迎您:<%- username%></span>
+    <input type="button" name="logout" value="注销" onclick="location.href='/logout'">
+    <input type="button" name="logout" value="评论" onclick="location.href='/comment'">          
+    <%}%>
+
+    <input type="button" name="register" value="注册" onclick="location.href='/registor'">
+    
+    
+  </body>
+</html>

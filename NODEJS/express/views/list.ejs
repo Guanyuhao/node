@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <%- include header%>
+        <input type="button" value="添加" onclick="location.href='/comment'">
+
+    <table>
+        <colgroup>
+            <col style="width:10%"></col>
+            <col style="width:40%"></col>
+            <col></col>
+        </colgroup>
+        <tr>
+            <th>序号</th>
+            <th>标题</th>
+            <th>内容</th>
+        </tr>
+        <% for(var i=0;i<list.length;i++){%>
+            <tr>
+                <td><%= i+1%></td>
+                <td>
+                    <a href="./detail?id=<%= list[i].uid %>"><%- list[i].title %></a>
+                </td>
+                <td><%- list[i].content%></td>
+            </tr>
+        <%}%>
+        <tr>
+            <td colspan="3">
+                <a href="./list?pageNo=1">
+                    首页
+                </a>
+                <a href="./list?pageNo=<%= pageNo > 1? pageNo-1: 1 %>">
+                    上一页
+                </a>
+                <a href="./list?pageNo=<%= pageNo < totalPage ? pageNo+1: totalPage %>">
+                    下一页
+                </a>
+                <a href="./list?pageNo=<%= totalPage%>">尾页</a>
+                <%= pageNo %>/<%= totalPage%>
+                共<%= count%>条数据
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
