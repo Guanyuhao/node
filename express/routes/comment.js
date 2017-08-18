@@ -18,6 +18,7 @@ var insertData =  function(db,callback){
 
     // var data = {title:title,content:content}
     // conn.insert(data,function(err,result){
+      
     //     callback(result)
     // })
     //desc 给_id排序
@@ -28,12 +29,14 @@ var insertData =  function(db,callback){
                 [['_id','desc']],
                 {$inc:{id:1}},
                 function(err,results){
+                    console.log(results+""+err)
                     callback(null,results)
                 }
             )
         },
-        function(result,callback){
-            var data ={title:title,content:content,uid:result.value.id}
+        function(results,callback){
+            console.log(results)
+            var data ={title:title,content:content,uid:results.value.id}
             comment.insert(data,function(err,results){
                 callback(null,results)
             })
